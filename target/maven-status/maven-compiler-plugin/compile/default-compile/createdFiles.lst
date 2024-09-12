@@ -1,0 +1,7 @@
+com\example\steel\controller\DatabaseTestServlet.class
+com\example\steel\controller\TaskCRUDServlet.class
+com\example\steel\dao\TaskDAO.class
+com\example\steel\model\Task.class
+com\example\steel\HelloServlet.class
+com\example\steel\dao\DatabaseConnection.class
+com\example\steel\TestTaskCreation.class

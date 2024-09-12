@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>steel</artifactId>
+    <packaging>war</packaging> <!-- Si estás generando un WAR para Tomcat -->
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- Java Servlet API -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+       <!-- Dependencia para JPA -->
+    <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <version>2.2</version>
+    </dependency>
+
+    <!-- Dependencia para Hibernate -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.4.32.Final</version>
+    </dependency>
+
+    <!-- Driver de PostgreSQL -->
+ <dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.2.23</version>
+</dependency>
+
+    <!-- Anotaciones de validación -->
+    <dependency>
+        <groupId>javax.validation</groupId>
+        <artifactId>validation-api</artifactId>
+        <version>2.0.1.Final</version>
+    </dependency>
+    </dependencies>
+
+<build>
+    <finalName>steel</finalName>
+    <resources>
+        <resource>
+            <directory>src/main/webapp</directory>
+            <includes>
+                <include>WEB-INF/**</include>
+            </includes>
+        </resource>
+        
+               <!-- Agregar la carpeta src/main/resources para incluir persistence.xml -->
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include>META-INF/**</include>
+            </includes>
+        </resource>
+    </resources>
+
+    <plugins>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.2.3</version>
+            <configuration>
+                <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                <failOnMissingWebXml>false</failOnMissingWebXml>
+            </configuration>
+        </plugin>
+
+        <!-- Plugin para ejecutar el método main directamente desde Maven -->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.0.0</version> 
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>java</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <configuration>
+                <mainClass>com.example.steel.TestTaskCreation</mainClass> 
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+</project>
