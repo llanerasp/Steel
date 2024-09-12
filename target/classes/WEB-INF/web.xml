@@ -4,6 +4,10 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>  <!-- Define la página de inicio -->
+    </welcome-file-list>
+    
     <!-- Configuración para HelloServlet -->
     <servlet>
         <servlet-name>HelloServlet</servlet-name>
@@ -34,7 +38,7 @@
 
     <servlet-mapping>
         <servlet-name>TaskCRUDServlet</servlet-name>
-        <url-pattern>/tasks</url-pattern>
+        <url-pattern>/tasks/*</url-pattern>
     </servlet-mapping>
 
 

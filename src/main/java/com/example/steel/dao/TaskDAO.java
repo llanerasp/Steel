@@ -4,6 +4,8 @@ import com.example.steel.model.Task;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+
+
 import java.util.List;
 
 public class TaskDAO {
@@ -48,5 +50,13 @@ public class TaskDAO {
         }
         em.getTransaction().commit();
         em.close();
+    }
+
+    // Método corregido para obtener una tarea por su ID usando EntityManager
+    public static Task getTaskById(int id) {
+        EntityManager em = entityManagerFactory.createEntityManager();
+        Task task = em.find(Task.class, id);  // Buscar la tarea por ID usando JPA
+        em.close();
+        return task;
     }
 }

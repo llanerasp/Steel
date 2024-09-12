@@ -8,6 +8,9 @@
         <!-- Proveedor JPA: Hibernate -->
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
+        <!-- Clases gestionadas por JPA -->
+        <class>com.example.steel.model.Task</class>
+
         <!-- Configuración de la base de datos -->
         <properties>
             <!-- Conexión a la base de datos PostgreSQL -->
@@ -18,8 +21,10 @@
 
             <!-- Configuración de Hibernate -->
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- auto-genera o actualiza las tablas -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- Actualiza las tablas automáticamente -->
             <property name="hibernate.show_sql" value="true"/> <!-- Muestra las consultas SQL en la consola -->
+            <property name="hibernate.format_sql" value="true"/> <!-- Formatea las consultas SQL para mejor lectura -->
+            <property name="hibernate.jdbc.lob.non_contextual_creation" value="true"/> <!-- Para el manejo de LOBs -->
         </properties>
     </persistence-unit>
 </persistence>
